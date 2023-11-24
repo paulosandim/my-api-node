@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 
 app.get('/projects', function(request, response) {
+  const {title, owner, page} = request.query
+  console.log(title, owner, page)
+
   return response.json([
     'Projeto 1',
     'Projeto 2'
@@ -17,6 +20,11 @@ app.post('/projects', function(request, response) {
 })
 
 app.put('/projects/:id', function(request, response) {
+  const {id} = request.params
+  const {name, owner} = request.body
+
+  console.log(id, name, owner)
+
   return response.json([
     'Projeto 4',
     'Projeto 2',
